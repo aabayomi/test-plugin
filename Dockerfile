@@ -9,6 +9,6 @@ WORKDIR /app
 
 RUN apt-get update && apt-get -y install cmake && pip3 install --no-cache-dir -r requirements.txt
 
-RUN make setup -f /app/Makefile && make setup -f /app/Makefile
+RUN make setup -f /app/Makefile && make check -f /app/Makefile
 
 # ENTRYPOINT ["python3", "-u", "app.py"]
