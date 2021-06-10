@@ -3,7 +3,8 @@ LABEL version="0.2.0" \
       description="Periodical/Trigger-based Image sampler"
 
 # COPY app.py /app/
-COPY app.py requirements.txt Makefile pyproject.toml /app/
+COPY .  /app/
+# COPY app.py requirements.txt Makefile pyproject.toml  /app/
 
 WORKDIR /app
 
