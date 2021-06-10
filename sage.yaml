@@ -1,19 +1,49 @@
-name: "image-sampler"
-description: "Periodical/Trigger-based Image sampler"
-version : "0.2.0"
-namespace: "sage"
+# name: "sample"
+# description: "ML Sample plugin"
+# version : "0.2.0"
+# namespace: "sage"
+# source:
+#   architectures :
+#     - "linux/amd64"
+#     - "linux/arm64"
+#   url: "https://github.com/aabayomi/test-plugin.git"
+# resources:
+#   - type: "RGB_image_producer"
+#     min_resolution: "600x800"
+# inputs:
+#   - id: "interval"
+#     type: "int"
+#   - id: "stream"
+#     type: "string"
+#   - id: "out-dir"
+#     type: "string"
+
+
+
+# namespace: "sage"
+# name: "simple"
+# version : "1.0"
+
+description: "ML Sample plugin"
 source:
-  architectures :
-    - "linux/amd64"
-    - "linux/arm64"
-  url: "https://github.com/waggle-sensor/plugin-image-sampler.git"
-resources:
+    architectures :
+        - "linux/amd64"  # required, valid fields: "linux/amd64", "linux/arm64", "linux/arm/v6", "linux/arm/v7", "linux/arm/v8
+    url: "https://github.com/aabayomi/test-plugin.git"   # required
+    branch: "master"  # optional, default: main
+    directory : "plugin-simple"  # optional, default: root of git repository
+    dockerfile : "Dockerfile_sage"   # optional, default: Dockerfile , relative to context directory
+    build_args: # optional, key-value pairs for docker build
+      VARIABLE1: "value1"
+resources:  # future feature
   - type: "RGB_image_producer"
+    view: "top"
     min_resolution: "600x800"
-inputs:
-  - id: "interval"
-    type: "int"
-  - id: "stream"
-    type: "string"
-  - id: "out-dir"
-    type: "string"
+
+inputs:  # future feature
+    - id: "speed"
+      type: "int"
+
+metadata: # custom key-value pairs
+  my-science-data : 12345
+
+
