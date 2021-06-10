@@ -3,7 +3,7 @@ LABEL version="0.2.0" \
       description="Periodical/Trigger-based Image sampler"
 
 # COPY app.py /app/
-COPY app.py requirements.txt Makefile /app/
+COPY app.py requirements.txt Makefile pyproject.toml /app/
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 RUN apt-get update && apt-get -y install cmake
