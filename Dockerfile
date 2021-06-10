@@ -4,12 +4,11 @@ LABEL version="0.2.0" \
 
 # COPY app.py /app/
 COPY app.py requirements.txt Makefile pyproject.toml /app/
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
-RUN apt-get update && apt-get -y install cmake
+WORKDIR /app
+
+RUN apt-get update && apt-get -y install cmake && pip3 install --no-cache-dir -r requirements.txt
 
 RUN make setup -f /app/Makefile && make setup -f /app/Makefile
 
-
-
-ENTRYPOINT ["python3", "-u", "/app/app.py"]
+# ENTRYPOINT ["python3", "-u", "app.py"]
