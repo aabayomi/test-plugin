@@ -8,8 +8,6 @@ RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 RUN apt-get update && apt-get -y install cmake
 
-RUN make install
-
 RUN make setup -f /app/Makefile && make setup -f /app/Makefile
 
 
