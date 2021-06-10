@@ -6,7 +6,13 @@ LABEL version="0.2.0" \
 COPY app.py requirements.txt Makefile /app/
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
-RUN make setup -f /app/Makefile && make check -f /app/Makefile
+RUN apt-get update && apt-get -y install cmake
+
+RUN make
+RUN make install
+
+RUN make setup -f /app/Makefile && make setup -f /app/Makefile
+
 
 
 ENTRYPOINT ["python3", "-u", "/app/app.py"]
